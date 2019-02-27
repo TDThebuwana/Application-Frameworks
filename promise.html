@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promise</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	
+	function main(){
+		return new Promise(function(resolve, reject){
+			setTimeout(function(){
+				const value = 1000;
+				resolve(value);
+			}, 1000);
+		});
+	}
+	
+	function executor(){
+
+		const promise = main();
+		let total = 0;
+
+		promise.then(function(amount){
+			total += amount;
+			return main();
+		}).then(function(amount){
+			total += amount;
+			return main();
+		}).then(function(amount){
+			total += amount;
+			return total;
+		}).then(function(value){
+			console.log(value);
+		});
+
+	}	
+	executor();
+
+
+</script>
+
+</body>

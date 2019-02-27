@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	
+	function main(Callback){
+		setTimeout(function(){
+			const value = 1000;
+			Callback(value);
+		}, 3000);
+	}
+	
+	main(function(value){
+		console.log(value*20/100);
+	});
+
+
+
+</script>
+
+</body>
